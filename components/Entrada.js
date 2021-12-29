@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { formatearFecha } from '../helpers/index';
 
@@ -6,6 +7,13 @@ const Entrada = ({ entrada }) => {
 
   return (
     <article>
+      <Image
+        layout="responsive"
+        width={800}
+        height={600}
+        src={imagen.url}
+        alt={`imagen blog ${titulo}`}
+      />
       <h1>{titulo}</h1>
       <p>{formatearFecha(published_at)}</p>
       <p>{resumen}</p>
