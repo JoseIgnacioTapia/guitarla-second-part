@@ -9,7 +9,7 @@ const EntradaBlog = ({ entrada }) => {
 };
 
 export async function getStaticPaths() {
-  const url = 'http://localhost:1337/blogs';
+  const url = `${process.env.API_URL}/blogs`;
   const respuesta = await fetch(url);
   const entradas = await respuesta.json();
 
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { id } }) {
-  const url = `http://localhost:1337/blogs/${id}`;
+  const url = `${process.env.API_URL}/blogs/${id}`;
   const respuesta = await fetch(url);
   const entrada = await respuesta.json();
   console.log(entrada);
@@ -37,7 +37,7 @@ export async function getStaticProps({ params: { id } }) {
 }
 
 // export async function getServerSideProps({ query: { id } }) {
-//   const url = `http://localhost:1337/blogs/${id}`;
+//   const url = `${process.env.API_URL}/blogs/${id}`;
 //   const respuesta = await fetch(url);
 //   const entrada = await respuesta.json();
 //   console.log(entrada);
