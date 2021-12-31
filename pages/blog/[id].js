@@ -1,10 +1,27 @@
+import Layout from '../../components/Layout';
+import Image from 'next/image';
+import { formatearFecha } from '../../helpers/index';
+
 const EntradaBlog = ({ entrada }) => {
-  console.log(entrada);
+  const { contenido, imagen, published_at, titulo } = entrada;
 
   return (
-    <div>
-      <h1>Desde EntradaBlog</h1>
-    </div>
+    <Layout>
+      <main>
+        <h1 className="heading">{titulo}</h1>
+        <article>
+          <Image
+            layout="responsive"
+            width={800}
+            height={600}
+            src={imagen.url}
+            alt={`Imagen entrada ${titulo}`}
+          />
+          <p>{formatearFecha(published_at)}</p>
+          <p>{contenido}</p>
+        </article>
+      </main>
+    </Layout>
   );
 };
 
