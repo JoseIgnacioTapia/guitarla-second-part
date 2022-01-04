@@ -1,9 +1,10 @@
 import Layout from '../components/Layout';
 import Listado from '../components/Listado';
+import Curso from '../components/Curso';
 
-export default function Home({ guitarras, cursos }) {
+export default function Home({ guitarras, curso }) {
   console.log(guitarras);
-  console.log(cursos);
+  console.log(curso);
 
   return (
     <Layout pagina="Inicio">
@@ -11,28 +12,30 @@ export default function Home({ guitarras, cursos }) {
         <h1 className="heading">Nuestra Colección</h1>
         <Listado guitarras={guitarras} />
       </main>
+
+      <Curso curso={curso} />
     </Layout>
   );
 }
 
 export async function getServerSideProps() {
   const urlGuitarras = `${process.env.API_URL}/guitarras`;
-  const urlCursos = `${process.env.API_URL}/cursos`;
+  const urlCurso = `${process.env.API_URL}/cursos`;
 
-  const [resGuitarras, resCursos] = await Promise.all([
+  const [resGuitarras, resCurso] = await Promise.all([
     fetch(urlGuitarras),
-    fetch(urlCursos),
+    fetch(urlCurso),
   ]);
 
-  const [guitarras, cursos] = await Promise.all([
+  const [guitarras, curso] = await Promise.all([
     resGuitarras.json(),
-    resCursos.json(),
+    resCurso.json(),
   ]);
 
   return {
     props: {
       guitarras,
-      cursos,
+      curso,
     },
   };
 }
