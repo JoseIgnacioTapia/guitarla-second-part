@@ -1,8 +1,10 @@
+import styles from '../styles/Curso.module.css';
+
 const Curso = ({ curso }) => {
   const { titulo, contenido, imagen } = curso;
 
   return (
-    <section>
+    <section className={styles.curso}>
       <div className="contenedor">
         <div>
           <h2>{titulo}</h2>
@@ -11,6 +13,23 @@ const Curso = ({ curso }) => {
           <a href="#">Más Información</a>
         </div>
       </div>
+
+      <style jsx>
+        {`
+          section {
+            padding: 10rem 0;
+            margin-top: 18rem;
+            background-image: linear-gradient(
+                to right,
+                rgb(0 0 0 / 0.65),
+                rgb(0 0 0 / 0.7)
+              ),
+              url(${imagen[0].url});
+            background-size: cover;
+            background-position: 50%;
+          }
+        `}
+      </style>
     </section>
   );
 };
