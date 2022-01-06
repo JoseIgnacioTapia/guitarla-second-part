@@ -1,24 +1,36 @@
 import Layout from '../../components/Layout';
 import Image from 'next/image';
-import styles from '../../styles/Entrada.module.css';
+import styles from '../../styles/Guitarra.module.css';
+import { formatearFecha } from '../../helpers';
 
 const DetalleCurso = ({ curso }) => {
   const { titulo, descripcion, inicio, fin, costo, imagen } = curso[0];
   console.log(curso[0]);
 
   return (
-    <Layout>
+    <Layout pagina={titulo}>
       <main>
         <h2 className="heading">{titulo}</h2>
-        <article className={styles.entrada}>
-          <Image
-            layout="responsive"
-            width={600}
-            height={400}
-            src={imagen[0].url}
-            alt={`Imagen entrada ${titulo}`}
-          />
-        </article>
+        <div className={styles.guitarra}>
+          <div className={styles.imagen}>
+            <Image
+              layout="responsive"
+              width={400}
+              height={400}
+              src={imagen[0].url}
+              alt={`Imagen entrada ${titulo}`}
+            />
+          </div>
+          <div>
+            <h3 className={styles.title}>{titulo}</h3>
+            <p>
+              Inicia <time>{formatearFecha(inicio)}</time> | Finaliza{' '}
+              <time>{formatearFecha(fin)}</time>
+            </p>
+            <p className="texto">{descripcion}</p>
+            <p className={styles.precio}>${costo}</p>
+          </div>
+        </div>
       </main>
     </Layout>
   );

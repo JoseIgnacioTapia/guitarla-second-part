@@ -45,7 +45,3 @@
   background-color: var(--primary);
   color: var(--blanco);
 }
-
-.texto {
-  white-space: pre-wrap;
-}
