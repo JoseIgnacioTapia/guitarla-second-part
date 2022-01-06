@@ -1,10 +1,25 @@
 .guitarra {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  column-gap: 1rem;
-  align-items: center;
-  max-width: 70rem;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .guitarra {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    column-gap: 1rem;
+    align-items: center;
+    max-width: 70rem;
+    margin: 0 auto;
+  }
+
+  .imagen {
+    align-self: start;
+  }
+
+  .title {
+    margin-top: 0;
+  }
 }
 
 .contenido {

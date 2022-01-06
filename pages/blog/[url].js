@@ -20,7 +20,7 @@ const EntradaBlog = ({ entrada }) => {
           />
           <div className={styles.contenido}>
             <p>{formatearFecha(published_at)}</p>
-            <p className={styles.texto}>{contenido}</p>
+            <p className="texto">{contenido}</p>
           </div>
         </article>
       </main>
