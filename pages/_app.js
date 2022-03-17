@@ -3,10 +3,10 @@ import '../styles/normalize.css';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
-  const [carrito, setCarritos] = useState([]);
+  const [carrito, setCarrito] = useState([]);
 
   const agregarCarrito = producto => {
-    setCarritos([...carrito, producto]);
+    setCarrito([...carrito, producto]);
   };
 
   return (
